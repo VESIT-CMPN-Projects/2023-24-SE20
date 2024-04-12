@@ -1,0 +1,86 @@
+
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="img">
+                <img src="{% static 'Sport.logo.png' %}">
+            </div>
+            <h1>SportSphere360</h1>
+        </div>
+        
+        <div class="main-nav">
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar">
+                <ol>
+                    <li><a href={% url 'index' %}>Home</a></li>
+                    
+                </ol>
+                <div class="dropdown">
+                    <button class="dropbtn">Sports
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                    <a clas="cricket" href={% url 'cricket' %}>Cricket</a>
+                    <a clas="cricket" href={% url 'football' %}>Football</a>
+                    <a clas="cricket" href={% url 'baseball' %}>Baseball</a>
+                    <a clas="cricket" href={% url 'tennis' %}>Tennis</a>
+                    <a clas="cricket" href={% url 'golf' %}>Golf</a>
+                    <a clas="cricket" href={% url 'badminton' %}>Badminton</a>
+                    <a clas="cricket" href={% url 'kabadii' %}>Kabaddi</a>
+                    <a clas="cricket" href={% url 'boxing' %}>Boxing</a>
+                    <a clas="cricket" href={% url 'athletics' %}>Athletics</a>
+                    <a clas="cricket" href={% url 'chess' %}>Chess</a>
+                    <a clas="cricket" href={% url 'swimming' %}>Swimming</a>
+                    <a clas="cricket" href={% url 'shooting' %}>Shooting</a>
+                    <a clas="cricket" href={% url 'wrestling' %}>Wrestling</a>
+                    <a clas="cricket" href={% url 'tabletennis' %}>Table Tennis</a>
+                    <a clas="cricket" href={% url 'other' %}>Other Sports</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="account">
+            <a clas="accbtn" href="{% url 'login' %}">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+
+    </header>
+    <section class="result" id="news">
+
+        <h1>Results</h1>
+        <div class="container">
+            {% for title, disc, img, link in mylist %}
+            
+            <div class="box">
+                
+                    <span class="title">{{title}}</span><br>
+                    <img src="{{img}}" alt="The Image is Loading...">                        
+                    <p>{{disc}}</p><br>
+                    <a href="{{link}}">See in Detail</a>
+                
+            </div>
+            
+            {% endfor %}    
+        </div>    
+</section>
+    
+</body>
+</html>
